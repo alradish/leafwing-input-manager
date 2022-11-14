@@ -9,6 +9,7 @@ use crate::Actionlike;
 
 use bevy::ecs::component::Component;
 use bevy::input::gamepad::Gamepad;
+use bevy::reflect::TypeUuid;
 
 use core::fmt::Debug;
 use petitset::PetitSet;
@@ -71,7 +72,8 @@ use std::marker::PhantomData;
 /// // Removal
 /// input_map.clear_action(Action::Hide);
 ///```
-#[derive(Component, Debug, Clone, PartialEq, Eq)]
+#[derive(Component, Debug, Clone, PartialEq, Eq, TypeUuid)]
+#[uuid = "D7DECC78-8573-42FF-851A-F0344C7D05C9"]
 pub struct InputMap<A: Actionlike> {
     /// The raw vector of [PetitSet]s used to store the input mapping,
     /// indexed by the `Actionlike::id` of `A`
